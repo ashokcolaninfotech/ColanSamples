@@ -1,0 +1,27 @@
+Project Name: GrowFlow
+Technologies: MVC,Angular JS,EntityFramework(Code First Approach)
+
+Brand:
+     *Brand controller is used to create new brand,edit,update and delete a existing brand details
+     *we can sort,filter and manage brand details 
+Employee:
+     *Employee controller is used to create new employee,edit,update and delete a existing emplee details
+     *We can able to manage employee information in employee controller
+Product:
+      *Product controller is used to create new product,edit,update and delete a existing product details
+      *we can sort,filter and manage product details 
+Room:
+      *Room controller is used to create new room,edit,update and delete a existing room details
+       *we can sort,filter and manage room details using angular JS
+Vehicle:
+      *Vehicle controller is used to create new vehicle ,edit,update and delete a existing vehicle details
+      *we can sort,filter and manage vehicle details using angular JS
+Vendor:
+      *Vendor controller is used to create new vendor,edit,update and delete a existing vendor details
+      *we can sort,filter and manage vendor details using angular JS
+Strain:
+      *Strain controller is used to create new strain,edit,update and delete a existing strain details
+Inventory:
+      *Inventory controller is used to create new inventory,edit,update and delete a existing inventory details
+      *We are manageing inventory details in inventory controller
+      

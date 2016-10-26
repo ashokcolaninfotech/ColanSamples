@@ -1,0 +1,1 @@
+Masterparking is created with MVC5 Entiry framework. This VehicleManager class is act as a repository which have the basic CRUD operations. It include with addtional repository which has VehicleModel, Make and Color of a vehicle.
