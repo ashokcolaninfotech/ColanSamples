@@ -1,0 +1,46 @@
+shipping_costs_home:
+    path:     /shipping_costs/home
+    defaults: { _controller: ShippingCostsBundle:Home:index }
+
+shipping_costs_back:
+    pattern:  /shipping_costs/home/back
+    defaults: { _controller: ShippingCostsBundle:Home:back }
+
+shipping_costs_next:
+    pattern:  /shipping_costs/home/next
+    defaults: { _controller: ShippingCostsBundle:Home:next }
+
+shipping_costs_sort:
+    pattern:  /shipping_costs/home/sort/{column_name}
+    defaults: { _controller: ShippingCostsBundle:Home:sort }
+
+shipping_costs_update:
+    pattern:  /shipping_costs/update
+    defaults: { _controller: ShippingCostsBundle:Home:update }
+
+shipping_costs_delete:
+    pattern:  /shipping_costs/delete/{id}
+    defaults: { _controller: ShippingCostsBundle:Home:delete }
+    requirements:
+        id: \d+
+
+shipping_costs_wizard_init:
+    path:     /shipping_costs/wizard/init
+    defaults: { _controller: ShippingCostsBundle:Create:wizardInit }
+
+shipping_costs_create_wizard:
+    path:     /shipping_costs/wizard/create/{page_num}
+    defaults: { _controller: ShippingCostsBundle:Create:wizard }
+    requirements:
+            page_num: \d+
+
+shipping_costs_wizard_back:
+    path:     /shipping_costs/wizard/back/{page_num}
+    defaults: { _controller: ShippingCostsBundle:Create:wizardBack }
+    requirements:
+            page_num: \d+
+
+shipping_costs_wizard_cancel:
+    path:     /shipping_costs/wizard/cancel
+    defaults: { _controller: ShippingCostsBundle:Create:wizardCancel }
+

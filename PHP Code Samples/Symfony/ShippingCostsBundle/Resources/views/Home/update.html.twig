@@ -1,0 +1,52 @@
+<fieldset class="form">
+  <legend>Update Shipping Costs</legend>
+  {{ form_start(form, {'attr': {'class' : 'collection_form', 'data-path': path('shipping_costs_update')}}) }}
+  <div class="report">
+    <table>
+      <thead>
+      <tr>
+        <td class="tl">Warehouse</td>
+        <td>City/State</td>
+        <td>Supplier</td>
+        <td>City/State</td>
+        <td>Shipping Product Name</td>
+        <td>Min Units</td>
+        <td>Max Units</td>
+        <td class="tr">Unit Cost</td>
+      </tr>
+      </thead>
+      <tbody>
+      {% for module in form.subData %}
+        <tr class="{{ cycle(['even','odd'],loop.index) }}">
+          <td>{{ module.vars.data.warehouse_name }}</td>
+          <td>{{ module.vars.data.warehouse_city_state_name }}</td>
+          <td>{{ module.vars.data.supplier_name }}</td>
+          <td>{{ module.vars.data.supplier_city_state_name }}</td>
+          <td>{{ module.vars.data.shipping_product_type_name }}</td>
+          <td>{{ form_widget(module.min_units) }}</td>
+          <td>{{ form_widget(module.max_units) }}</td>
+          <td>{{ form_widget(module.unit_cost) }}</td>
+        </tr>
+      {% else %}
+        {% include '@Common/Layout/empty_report.html.twig' with {'colspan': 8} %}
+      {% endfor %}
+      </tbody>
+      <tfoot>
+      <tr><td colspan="8" class="bl br">&nbsp;</td></tr>
+      </tfoot>
+    </table>
+    <div class="hide">
+      {{ form_row(form.subData) }}
+    </div>
+  </div>
+  <div id="form_error_container">{{ form_errors(form) }}</div>
+  <div class="buttons">
+    <div>
+      <button type="button"
+              class="toggle_collection_form"
+              data-path="">Cancel</button>
+      <button type="submit">Submit</button>
+    </div>
+  </div>
+  {{ form_end(form) }}
+</fieldset>

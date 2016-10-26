@@ -1,0 +1,20 @@
+<div style="padding: 0 0 2em">
+  <fieldset class="form">
+    <legend>Delete Item</legend>
+    {{ form_start(form, {'attr': {
+      'id' : form.vars.data.shipping_cost_id,
+      'class' : 'row_update_form',
+      'path' : path('shipping_costs_delete', {'id': form.vars.data.shipping_cost_id})}}) }}
+
+    {{ form_row(form.confirm_delete) }}
+
+    <div id="form_error_container">{{ form_errors(form) }}</div>
+    <div class="buttons">
+      <div class="button_width">
+        <button id="{{ form.vars.data.shipping_cost_id }}" type="button" class="toggle_row_update">Cancel</button>
+        <button type="submit">Delete</button>
+      </div>
+    </div>
+    {{ form_end(form) }}
+  </fieldset>
+</div>

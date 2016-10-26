@@ -1,0 +1,42 @@
+<table>
+  <thead>
+  <tr>
+    <td class="tl trash"></td>
+    <td id="warehouse_name" class="report_page_sort {{ report.sortClass('warehouse_name') }}">Warehouse</td>
+    <td id="warehouse_city_state_name" class="report_page_sort {{ report.sortClass('warehouse_city_state_name') }}">City/State</td>
+    <td id="supplier_name" class="report_page_sort {{ report.sortClass('supplier_name') }}">Supplier</td>
+    <td id="supplier_city_state_name" class="report_page_sort {{ report.sortClass('supplier_city_state_name') }}">City/State</td>
+    <td id="shipping_product_type_name" class="report_page_sort {{ report.sortClass('shipping_product_type_name') }}">Shipping Product Name</td>
+    <td id="min_units" class="report_page_sort number {{ report.sortClass('min_units') }}">Min Units</td>
+    <td id="max_units" class="report_page_sort number {{ report.sortClass('max_units') }}">Max Units</td>
+    <td id="unit_cost" class="report_page_sort tr number {{ report.sortClass('unit_cost') }}">Unit Cost</td>
+  </tr>
+  </thead>
+  <tbody>
+  {% for row in report.list %}
+    <tr class="{{ cycle(['even','odd'],loop.index) }}">
+      <td><img id="{{ row.shipping_cost_id }}"
+               class="trash click toggle_row_update"
+               src="/images/delete.svg"
+               title="Delete shipping cost"
+               path="{{ path('shipping_costs_delete', {'id': row.shipping_cost_id}) }}"></td>
+      <td>{{ row.warehouse_name }}</td>
+      <td>{{ row.warehouse_city_state_name }}</td>
+      <td>{{ row.supplier_name }}</td>
+      <td>{{ row.supplier_city_state_name }}</td>
+      <td>{{ row.shipping_product_type_name }}</td>
+      <td class="number">{{ row.min_units | number_format }}</td>
+      <td class="number">{{ row.max_units | number_format }}</td>
+      <td class="number">{{ row.unit_cost | number_format(4) }}</td>
+    </tr>
+    <tr id="update_row_{{ row.shipping_cost_id }}" class="{{ cycle(['even','odd'],loop.index) }} update_row hide">
+      <td id="update_container_{{ row.shipping_cost_id }}" colspan="9" class="update_container"></td>
+    </tr>
+  {% else %}
+    {% include '@Common/Layout/empty_report.html.twig' with {'colspan': 9} %}
+  {% endfor %}
+  </tbody>
+  <tfoot>
+  <tr><td colspan="9" class="bl br">&nbsp;</td></tr>
+  </tfoot>
+</table>
